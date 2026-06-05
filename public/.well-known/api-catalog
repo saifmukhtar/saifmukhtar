@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://saifmukhtar.dev/",
+      "service-doc": [
+        {
+          "href": "https://saifmukhtar.dev/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
