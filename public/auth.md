@@ -1,4 +1,4 @@
-# Agent Authentication Policy
+# Auth.md
 
 This site is a public portfolio. There are no user accounts, private endpoints, or authentication mechanisms required to access the content. 
 
