@@ -1,0 +1,128 @@
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin: var(--space-3) 0 var(--space-8);
+}
+@media (max-width: 768px) { .title { font-size: var(--text-4xl); } }
+
+.orcidBadge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow 200ms ease;
+  max-width: 400px;
+}
+.orcidBadge:hover { box-shadow: var(--shadow-sm); }
+
+.orcidIcon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #f0fbe6;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.orcidLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A6CE39;
+  margin: 0;
+}
+.orcidId {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+}
+
+.paper {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 700px;
+  border-left: 3px solid var(--accent-peach);
+}
+
+.paperMeta { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.paperTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.paperAuthors {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.doiSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.doiLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 80px;
+}
+
+.copyChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 150ms ease;
+  position: relative;
+}
+.copyChip:hover { background: var(--accent-peach-pale); color: var(--accent-peach); }
+
+.chipText { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.copiedLabel {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-primary);
+  color: var(--bg-base);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }

@@ -1,0 +1,118 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 16px 24px;
+  pointer-events: none;
+  transition: padding 250ms ease;
+}
+
+.nav.scrolled {
+  padding: 10px 24px;
+}
+
+.pill {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px 6px 10px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 9999px;
+  box-shadow: var(--shadow-md), var(--shadow-sm);
+  max-width: calc(100vw - 48px);
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--accent-peach);
+  border-radius: 50%;
+  transition: color 200ms ease, background 200ms ease;
+  flex-shrink: 0;
+}
+
+.logoMark:hover {
+  background: var(--accent-peach-pale);
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border-light);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.marqueeContainer {
+  overflow: hidden;
+  max-width: 450px; /* Constrain the width to force scrolling */
+  display: flex;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+  animation: scroll 16s linear infinite;
+}
+
+.marqueeContainer:hover .marqueeContent {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 2px)); /* -50% because we duplicated the array, -2px for gap offset */ }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.link:hover {
+  color: var(--text-primary);
+  background: var(--bg-muted);
+}
+
+.active {
+  color: var(--accent-peach) !important;
+  background: var(--accent-peach-pale) !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .pill {
+    padding: 5px 6px;
+    gap: 2px;
+  }
+  .marqueeContainer {
+    max-width: 250px;
+  }
+}
+

@@ -1,0 +1,78 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.halo {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(131, 197, 190, 0.18) 0%, /* Icy blue */
+    rgba(229, 152, 155, 0.06) 50%, /* Dusty pink */
+    transparent 70%
+  );
+  animation: haloPulse 4s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+.rose {
+  width: 100%;
+  height: 100%;
+  animation: roseRotate 16s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes roseRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.outerKnot {
+  animation: outerPulse 6s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes outerPulse {
+  from { opacity: 0.75; }
+  to   { opacity: 1; }
+}
+
+.orbit {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(131, 197, 190, 0.35); /* Icy blue */
+  animation: orbitSpin 28s linear infinite reverse;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Hover: speed up */
+.wrapper:hover .rose {
+  animation-duration: 6s;
+}
+
+.wrapper:hover .halo {
+  background: radial-gradient(ellipse at center,
+    rgba(229, 152, 155, 0.28) 0%, /* Dusty pink */
+    rgba(131, 197, 190, 0.10) 50%, /* Icy blue */
+    transparent 70%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rose, .orbit, .halo { animation: none; }
+}
+

@@ -1,0 +1,118 @@
+.header { margin-bottom: var(--space-12); }
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin: var(--space-3) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 40px; }
+  .title { font-size: var(--text-4xl); }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: sticky;
+  top: calc(var(--nav-height) + 32px);
+}
+
+@media (max-width: 768px) {
+  .left { position: static; align-items: center; }
+}
+
+.identity { display: flex; flex-direction: column; gap: 4px; }
+
+.fullName {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.location {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.institution {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.right { display: flex; flex-direction: column; gap: 32px; }
+
+.bio { display: flex; flex-direction: column; gap: 18px; }
+
+.bio p {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.fact {
+  display: flex;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.fact:last-child { border-bottom: none; }
+
+.factLabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.factValue {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.skillsPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
