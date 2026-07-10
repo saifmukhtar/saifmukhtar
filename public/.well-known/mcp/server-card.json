@@ -6,6 +6,6 @@
   "capabilities": {},
   "transport": {
     "type": "sse",
-    "endpoint": "https://example.com/"
+    "endpoint": "https://saifmukhtar.dev/"
   }
 }
