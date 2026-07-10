@@ -18,7 +18,7 @@ export default function Terms() {
         <section className={styles.section}>
           <h2>2. Data Scraping & Misuse</h2>
           <p>
-            You are strictly prohibited from scraping, mining, or extracting personal data, email addresses, or any contact information from this website for the purposes of marketing, spam lists, unsolicited outreach, or training AI models.
+            You are strictly prohibited from scraping, mining, or extracting personal data, email addresses, or any contact information from this website for the purposes of marketing, spam lists, or unsolicited outreach. Note: Knowledge-gathering by respectful AI crawlers is permitted.
           </p>
         </section>
 
