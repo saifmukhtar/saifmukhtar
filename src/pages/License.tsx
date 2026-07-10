@@ -6,7 +6,7 @@ export default function License() {
     <Page>
       <div className={styles.container}>
         <h1 className={styles.title}>MIT License</h1>
-        <p className={styles.lastUpdated}>Copyright (c) 2026 Saif Mukhtar</p>
+        <p className={styles.lastUpdated}>Copyright (c) 2026 Template Name</p>
 
         <section className={styles.section}>
           <p>

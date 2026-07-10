@@ -1,103 +1,103 @@
 /* =============================================
    DESIGN TOKENS — saifmukhtar.dev
+   "Notebook & Proof" — cream, ink, asymmetric
    ============================================= */
 
-/* --- THEME: "Absolute Clarity" --- 
-   Zero "dusty" colors. Pure, brilliant white background,
-   pure black text, and an incredibly sharp, vibrant Electric Blue.
-   This is the exact aesthetic of premium sites like Vercel and Apple.
-*/
 :root {
-  /* Absolute Pure White - no cream, no gray, no blue tint */
-  --bg-base:           #FFFFFF; 
-  --bg-subtle:         #FAFAFA;
-  --bg-muted:          #F4F4F5;
+  /* ---- Backgrounds ---- */
+  --bg-base:        #F8F7F2;   /* warm cream */
+  --bg-subtle:      #F0EEE6;   /* slightly richer cream */
+  --bg-muted:       #E5E2D6;   /* warm grey */
+  --bg-elevated:    #FFFFFF;   /* pure white cards */
 
-  /* Crystal clear glass */
-  --glass-bg:          rgba(255, 255, 255, 0.90);
-  --glass-bg-dark:     rgba(250, 250, 250, 0.80);
-  --glass-border:      rgba(0, 0, 0, 0.04); 
-  --glass-blur:        24px;
+  /* ---- Ink (text + borders) ---- */
+  --ink:            #1A1714;   /* warm near-black */
+  --ink-secondary:  #4E4A45;   /* mid-tone */
+  --ink-muted:      #96918B;   /* quiet */
+  --ink-faint:      rgba(26, 23, 20, 0.35);
 
-  /* Ultra-crisp typography */
-  --text-primary:      #000000;   
-  --text-secondary:    #3F3F46;   
-  --text-muted:        #A1A1AA;   
-  --text-on-accent:    #FFFFFF;
+  /* ---- Borders ---- */
+  --border:         rgba(26, 23, 20, 0.10);
+  --border-strong:  rgba(26, 23, 20, 0.20);
+  --border-focus:   rgba(26, 23, 20, 0.55);
 
-  --border-light:      rgba(0, 0, 0, 0.05);
-  --border-medium:     rgba(0, 0, 0, 0.10);
+  /* ---- Project Accent Colours ---- */
+  --amber:          #C4781A;   /* Kinetic */
+  --amber-soft:     #F5E8D0;
+  --blue:           #1B4FD8;   /* Enclave */
+  --blue-soft:      #DDE5FA;
+  --teal:           #167A6E;   /* Antimatter */
+  --teal-soft:      #D0EDE9;
+  --slate:          #3B6B8C;   /* Kinetic Client */
+  --slate-soft:     #D6E5EF;
+  --rose:           #E11D48;   /* Chromacard */
+  --rose-soft:      #FFE4E6;
 
-  --shadow-xs:   0 1px 4px rgba(0, 0, 0, 0.02);
-  --shadow-sm:   0 2px 12px rgba(0, 0, 0, 0.04);
-  --shadow-md:   0 8px 32px rgba(0, 0, 0, 0.06);
-  --shadow-lg:   0 20px 60px rgba(0, 0, 0, 0.08);
-  
-  /* Typography & Layout */
-  --font-serif:  'Fraunces', Georgia, serif;
-  --font-sans:   'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+  /* ---- Shadows (warm-tinted) ---- */
+  --shadow-xs:  0 1px 2px rgba(26, 23, 20, 0.06);
+  --shadow-sm:  0 2px 8px  rgba(26, 23, 20, 0.08);
+  --shadow-md:  0 6px 20px rgba(26, 23, 20, 0.10);
+  --shadow-lg:  0 16px 48px rgba(26, 23, 20, 0.12);
 
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
-  --text-base: 1rem;
-  --text-lg:   1.125rem;
-  --text-xl:   1.25rem;
-  --text-2xl:  1.5rem;
-  --text-3xl:  1.875rem;
-  --text-4xl:  2.25rem;
-  --text-5xl:  3rem;
-  --text-6xl:  3.75rem;
-  --text-7xl:  4.5rem;
+  /* ---- Offset shadow (asymmetric feel) ---- */
+  --shadow-offset: 3px 4px 0px rgba(26, 23, 20, 0.15);
+  --shadow-offset-hover: 5px 6px 0px rgba(26, 23, 20, 0.18);
 
-  --space-1:   0.25rem;
-  --space-2:   0.5rem;
-  --space-3:   0.75rem;
-  --space-4:   1rem;
-  --space-5:   1.25rem;
-  --space-6:   1.5rem;
-  --space-8:   2rem;
-  --space-10:  2.5rem;
-  --space-12:  3rem;
-  --space-16:  4rem;
-  --space-20:  5rem;
-  --space-24:  6rem;
-  --space-32:  8rem;
+  /* ---- Typography ---- */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
-  --radius-sm:   8px;
-  --radius-md:   16px;
-  --radius-lg:   24px;
-  --radius-xl:   32px;
-  --radius-full: 9999px;
+  /* ---- Type Scale ---- */
+  --text-2xs:  0.625rem;   /* 10px */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.375rem;   /* 22px */
+  --text-2xl:  1.75rem;    /* 28px */
+  --text-3xl:  2.25rem;    /* 36px */
+  --text-4xl:  3rem;       /* 48px */
+  --text-5xl:  4rem;       /* 64px */
+  --text-6xl:  5.5rem;     /* 88px */
+  --text-7xl:  7rem;       /* 112px */
 
-  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
-  --duration-fast:   150ms;
-  --duration-base:   250ms;
-  --duration-slow:   400ms;
+  /* ---- Spacing ---- */
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-5:  1.25rem;
+  --sp-6:  1.5rem;
+  --sp-8:  2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
 
-  --max-width:    1100px;
-  --nav-height:   64px;
+  /* ---- Border radius (intentionally minimal) ---- */
+  --r-none: 0px;
+  --r-sm:   2px;
+  --r-md:   4px;
+  --r-lg:   8px;
+  --r-full: 9999px;
 
-  /* ========================================================
-     THE ACCENT PALETTE (Electric Blue & Indigo)
-     Highly saturated, pure colors. Zero dustiness.
-     ======================================================== */
-  
-  /* Primary Accent: Electric Blue (Vercel style) */
-  --accent-peach:      #0070F3;   
-  --accent-peach-soft: #3291FF;   
-  --accent-peach-pale: #D3E5FF;   
-  
-  /* Secondary Accent: Luminous Indigo (Stripe style) */
-  --accent-blue:       #635BFF;   
-  --accent-blue-pale:  #E0E7FF;   
-  
-  /* Tertiary Accent: Pure Cyan */
-  --accent-rose:       #00DFD8;   
-  --accent-rose-pale:  #CCFBF9;   
-  
-  /* A sharp, clean blue glow */
-  --shadow-glow:       0 0 32px rgba(0, 112, 243, 0.20); 
+  /* ---- Easing ---- */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---- Durations ---- */
+  --dur-fast:   120ms;
+  --dur-base:   220ms;
+  --dur-slow:   380ms;
+  --dur-slower: 600ms;
+
+  /* ---- Layout ---- */
+  --max-width:  1360px;
+  --max-width-wide: 1800px;
+  --nav-height: 72px;
 }

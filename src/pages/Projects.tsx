@@ -1,69 +1,134 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Page from '../components/Page'
-import ProjectCard from '../components/ProjectCard'
-import { projects } from '../data/projects'
+import { projects, Project } from '../data/projects'
 import styles from './Projects.module.css'
 
-export default function Projects() {
-  const featured = projects.filter(p => p.featured)
-  const rest = projects.filter(p => !p.featured)
+const ALL = 'All'
+const langs = [ALL, ...Array.from(new Set(
+  projects.flatMap(p => p.tags.filter(t =>
+    ['Rust', 'Kotlin', 'Flutter', 'Python', 'TypeScript'].includes(t)
+  ))
+))]
 
-  if (projects.length === 0) {
-    return (
-      <Page>
-        <div className="content-wrap" style={{ textAlign: 'center', padding: '100px 0' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', color: 'var(--text-primary)', marginBottom: '1rem' }}>Data Unavailable</h2>
-          <p style={{ color: 'var(--text-secondary)' }}>Projects are currently being indexed. Please check back soon.</p>
+const colors: Record<string, { border: string; bg: string }> = {
+  kinetic:          { border: 'var(--amber)', bg: 'var(--amber-soft)' },
+  enclave:          { border: 'var(--blue)',  bg: 'var(--blue-soft)'  },
+  antimatter:       { border: 'var(--teal)',  bg: 'var(--teal-soft)'  },
+  'kinetic-client': { border: 'var(--slate)', bg: 'var(--slate-soft)' },
+}
+
+function DossierCard({ project, index }: { project: Project; index: number }) {
+  const c = colors[project.id] ?? { border: 'var(--ink)', bg: 'var(--bg-subtle)' }
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.article
+      className={styles.card}
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.35, delay: index * 0.06 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ '--c-border': c.border, '--c-bg': c.bg } as React.CSSProperties}
+    >
+      {/* Animated border perimeter on hover */}
+      <motion.div
+        className={styles.perimeterBorder}
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: hovered ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+      />
+
+      <div className={styles.cardHeader}>
+        <span className={styles.fileId}>
+          FILE-{String(projects.indexOf(project) + 1).padStart(3, '0')}
+        </span>
+        <span className={styles.status}>
+          <span className={styles.statusDot} />
+          ACTIVE
+        </span>
+      </div>
+
+      <h2 className={styles.cardName}>{project.name}</h2>
+      <p className={styles.cardTagline}>{project.tagline}</p>
+      <p className={styles.cardDesc}>{project.description}</p>
+
+      <div className={styles.cardTags}>
+        {project.tags.map(tag => (
+          <span key={tag} className="chip">{tag}</span>
+        ))}
+      </div>
+
+      <div className={styles.cardFooter}>
+        <span className={styles.cardLang}>{project.language}</span>
+        {project.license && <span className={styles.cardLicense}>{project.license}</span>}
+        <div className={styles.cardLinks}>
+          {project.links.github && (
+            <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="btn-arrow">
+              GitHub →
+            </a>
+          )}
+          {project.links.website && (
+            <a href={project.links.website} target="_blank" rel="noopener noreferrer" className="btn-arrow">
+              Docs ↗
+            </a>
+          )}
+          {project.links.fdroid && (
+            <a href={project.links.fdroid} target="_blank" rel="noopener noreferrer" className="btn-arrow">
+              F-Droid ↗
+            </a>
+          )}
         </div>
-      </Page>
-    )
-  }
+      </div>
+    </motion.article>
+  )
+}
+
+export default function Projects() {
+  const [filter, setFilter] = useState(ALL)
+
+  const visible = filter === ALL
+    ? projects
+    : projects.filter(p => p.tags.includes(filter))
 
   return (
     <Page>
-      <div className="content-wrap">
+      <div className={styles.container}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className={styles.header}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
-          <span className="section-label">Work</span>
-          <h1 className={styles.title}>Things I've built.</h1>
-          <div className="divider" />
-          <p className={styles.intro}>
-            A mix of privacy-first Android apps, physics simulation engines, and a few quieter
-            experiments. Click any card to learn more.
-          </p>
+          <p className="eyebrow">Projects</p>
+          <h1 className={styles.title}>What I build</h1>
         </motion.div>
 
-        {/* Featured — bento wide */}
-        <div className={styles.bentoGrid}>
-          {featured.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+        {/* Filter strip */}
+        <div className={styles.filters}>
+          {langs.map(lang => (
+            <button
+              key={lang}
+              className={`${styles.filterBtn} ${filter === lang ? styles.filterActive : ''}`}
+              onClick={() => setFilter(lang)}
             >
-              <ProjectCard project={project} wide />
-            </motion.div>
+              {filter === lang && <span className={styles.filterCheck}>✓</span>}
+              {lang}
+            </button>
           ))}
         </div>
 
-        {/* Rest */}
-        <div className={styles.grid}>
-          {rest.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
-        </div>
+        {/* Cards */}
+        <motion.div className={styles.grid} layout>
+          <AnimatePresence mode="popLayout">
+            {visible.map((p, i) => (
+              <DossierCard key={p.id} project={p} index={i} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </Page>
   )

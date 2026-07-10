@@ -1,10 +1,10 @@
 {
   "linkset": [
     {
-      "anchor": "https://saifmukhtar.dev/",
+      "anchor": "https://example.com/",
       "service-doc": [
         {
-          "href": "https://saifmukhtar.dev/",
+          "href": "https://example.com/",
           "type": "text/html"
         }
       ]

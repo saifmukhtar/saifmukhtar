@@ -1,0 +1,72 @@
+.widget {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--sp-6);
+}
+
+.dotContainer {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--teal);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.dotPing {
+  width: 100%;
+  height: 100%;
+  background-color: var(--teal);
+  border-radius: 50%;
+  position: absolute;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.label {
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  color: var(--border-hover);
+}
+
+.text {
+  color: var(--ink-muted);
+}
+
+.text strong {
+  color: var(--ink);
+  font-weight: 500;
+}

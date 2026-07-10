@@ -1,11 +1,11 @@
 {
   "serverInfo": {
-    "name": "saifmukhtar-portfolio",
+    "name": "template-portfolio",
     "version": "1.0.0"
   },
   "capabilities": {},
   "transport": {
     "type": "sse",
-    "endpoint": "https://saifmukhtar.dev/"
+    "endpoint": "https://example.com/"
   }
 }

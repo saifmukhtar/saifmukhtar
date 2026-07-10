@@ -1,5 +1,9 @@
 # Custom user folders
 osint/
+antimatter/
+.agent/
+.claude/
+.repo-imports/
 
 # Logs
 logs

@@ -1,93 +1,177 @@
 import { motion } from 'framer-motion'
 import Page from '../components/Page'
 import Avatar from '../components/Avatar'
-import SocialStrip from '../components/SocialStrip'
+import LiveStatus from '../components/LiveStatus'
 import { skillGroups } from '../data/skills'
 import styles from './About.module.css'
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, delay, ease: [0.4, 0, 0.2, 1] as const },
-})
+// Map skill name to element-style abbreviation
+function toSymbol(skill: string): string {
+  const map: Record<string, string> = {
+    'Rust': 'Rs', 'TypeScript': 'Ts', 'Go': 'Go', 'Python': 'Py',
+    'Kotlin': 'Kt', 'Bash': 'Sh', 'SQL': 'Sq', 'JavaScript': 'Js',
+    'HTML': 'Ht', 'CSS': 'Cs',
+    'Jetpack Compose': 'Jc', 'Material Design 3': 'M3', 'Android Keystore': 'AK',
+    'WorkManager': 'Wm', 'Room': 'Rm', 'CameraX': 'Cx', 'Biometric API': 'Bi',
+    'WebRTC': 'Wc', 'E2EE': 'E2', 'Signal Protocol': 'Si', 'libsignal': 'Ls',
+    'STUN/TURN': 'St', 'WebSocket': 'Ws', 'AGPL': 'Ag', 'Zero-knowledge': 'Zk',
+    'Supabase': 'Sb', 'PostgreSQL': 'Pg', 'Docker': 'Dk', 'Nginx': 'Nx',
+    'Coturn': 'Co', 'Ntfy': 'Nt', 'Kong': 'Kg', 'Node.js': 'Nj',
+    'React': 'Re', 'Next.js': 'Nxt', 'Vite': 'Vi', 'Tailwind CSS': 'Tw',
+    'Framer Motion': 'Fm', 'Three.js': 'Th',
+    'Numerical Simulation': 'NS', 'Graph Theory': 'GT', 'Causal Networks': 'CN',
+    'Physics Engines': 'PE', 'Data Analysis': 'DA', 'Blender Pipeline': 'BP',
+    'Git': 'Gi', 'GitHub Actions': 'GA', 'F-Droid': 'FD',
+    'Gemini API': 'Gm', 'AI Studio': 'AS', 'VS Code': 'VS',
+  }
+  return map[skill] ?? skill.slice(0, 2)
+}
+
+// Row colors per category
+const rowColors: Record<string, string> = {
+  'Languages': 'var(--amber)',
+  'Android & Mobile': 'var(--teal)',
+  'Networking & Security': 'var(--blue)',
+  'Backend & Infrastructure': 'var(--slate)',
+  'Web & Frontend': 'var(--amber)',
+  'Research & Simulation': 'var(--teal)',
+  'Tools': 'var(--ink-muted)',
+}
 
 export default function About() {
   return (
     <Page>
-      <div className="content-wrap">
-
-        {/* Header */}
-        <motion.div className={styles.header} {...fadeUp()}>
-          <span className="section-label">About</span>
-          <h1 className={styles.title}>A little about me.</h1>
-          <div className="divider" />
+      <div className={styles.container}>
+        {/* ── Header ─────────────────────────── */}
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+        >
+          <LiveStatus />
+          <h1 className={styles.title}>Who am I</h1>
         </motion.div>
 
-        {/* Two-column */}
-        <div className={styles.grid}>
-
-          {/* Left — avatar + identity */}
-          <motion.div className={styles.left} {...fadeUp(0.1)}>
-            <Avatar size={120} />
-            <div className={styles.identity}>
-              <h2 className={styles.fullName}>Saif Mukhtar</h2>
-              <p className={styles.location}>Aligarh, India</p>
-              <p className={styles.institution}>Aligarh Muslim University</p>
+        {/* ── Profile split ───────────────────── */}
+        <div className={styles.profileGrid}>
+          {/* Photo */}
+          <motion.div
+            className={styles.photoWrap}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <div className={styles.photoFrame}>
+              <Avatar size={280} className={styles.photo} />
             </div>
-            <SocialStrip />
+            <div className={styles.photoCaption}>
+              <span>Saif Mukhtar</span>
+              <span className={styles.photoCaptionSub}>Aligarh Muslim University</span>
+            </div>
           </motion.div>
 
-          {/* Right — bio */}
-          <motion.div className={styles.right} {...fadeUp(0.18)}>
-            <div className={styles.bio}>
-              <p>
-                Hi! I'm Saif. I'm an independent developer and researcher based in Aligarh, India. 
-                I love building elegant systems, experimenting with new technologies, and crafting software 
-                that feels right. For me, coding isn't just about logic—it's about expression and design.
-              </p>
-              <p>
-                When I'm not deep into code, you can find me exploring theoretical physics, diving into open-source 
-                projects, or just learning something new. I'm fascinated by the idea of emergent complexity—how 
-                simple rules can create intricate, beautiful systems. That curiosity drives almost everything I do.
-              </p>
-              <p>
-                I believe software should respect the people who use it, which is why I'm a huge advocate for 
-                privacy and open-source ecosystems. I'm always up for a good conversation about tech, design, 
-                or physics, so feel free to reach out!
-              </p>
-            </div>
+          {/* Bio */}
+          <motion.div
+            className={styles.bio}
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <p className={styles.bioSig}>Towards the end —</p>
 
-            {/* Quick facts */}
-            <div className={styles.facts}>
+            <p className={styles.bioPara}>
+              I'm Saif, from Aligarh, India. I spend most of my time building 
+              software that I think should exist but somehow doesn't yet.
+            </p>
+            <p className={styles.bioPara}>
+              Right now that means <strong>Kinetic</strong> — a way to register 
+              internet names without paying anyone, ever. No blockchain, no fees, 
+              just a lot of math running patiently on your CPU. Also{' '}
+              <strong>Enclave</strong>, for private messaging that actually stays 
+              private, and <strong>Antimatter</strong>, so I can check on my AI 
+              coding agents from my phone.
+            </p>
+            <p className={styles.bioPara}>
+              I like Rust, cryptography, physics, and software that doesn't spy on you.
+            </p>
+
+            {/* Index cards */}
+            <div className={styles.cards}>
               {[
-                { label: 'Currently building', value: 'Enclave, HCSN Engine' },
-                { label: 'Primary languages', value: 'Rust · TypeScript · Python · Kotlin' },
-                { label: 'Vibe', value: 'Curious, builder, open-source advocate' },
-                { label: 'Interests', value: 'Privacy software · Physics · Design' },
-                { label: 'Contact', value: 'saifmukhtar20@gmail.com' },
-              ].map(({ label, value }) => (
-                <div key={label} className={styles.fact}>
-                  <span className={styles.factLabel}>{label}</span>
-                  <span className={styles.factValue}>{value}</span>
-                </div>
+                { k: 'Currently building', v: 'Kinetic · Enclave · Antimatter' },
+                { k: 'Primary language', v: 'Rust' },
+                { k: 'Focus', v: 'Privacy · Cryptography · P2P' },
+                { k: 'Location', v: 'Aligarh, India' },
+                { k: 'Everything is', v: 'Open source' },
+              ].map(({ k, v }, i) => (
+                <motion.div
+                  key={k}
+                  className={styles.indexCard}
+                  initial={{ opacity: 0, y: 8, rotate: 0 }}
+                  animate={{ opacity: 1, y: 0, rotate: i % 2 === 0 ? -0.6 : 0.8 }}
+                  transition={{ duration: 0.4, delay: 0.35 + i * 0.07 }}
+                  whileHover={{ rotate: 0, y: -2, transition: { duration: 0.15 } }}
+                >
+                  <span className={styles.indexKey}>{k}</span>
+                  <span className={styles.indexVal}>{v}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Quick skills preview */}
-        <motion.div className={styles.skillsPreview} {...fadeUp(0.25)}>
-          <span className="section-label">What I work with</span>
-          <div className={styles.tagCloud}>
-            {skillGroups.slice(0, 3).flatMap(g => g.skills).map(skill => (
-              <span key={skill} className="tag">{skill}</span>
-            ))}
+        {/* ── Periodic Table of Skills ─────────── */}
+        <motion.div
+          className={styles.tableSection}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="eyebrow" style={{ marginBottom: 'var(--sp-6)' }}>Skills</p>
+
+          <div className={styles.bentoGrid}>
+            {skillGroups.map((group, i) => {
+              const color = rowColors[group.category] ?? 'var(--ink-muted)'
+              return (
+                <motion.div
+                  key={group.category} 
+                  className={styles.bentoCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                >
+                  <div className={styles.bentoHeader}>
+                    <div className={styles.bentoDot} style={{ background: color }} />
+                    <span className={styles.bentoCategory}>{group.category}</span>
+                  </div>
+                  
+                  <div className={styles.bentoCells}>
+                    {group.skills.map((skill, j) => (
+                      <motion.div
+                        key={skill}
+                        className={styles.cell}
+                        style={{ '--cell-color': color } as React.CSSProperties}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.25, delay: 0.2 + (j * 0.03) }}
+                        whileHover={{ scale: 1.06, y: -2 }}
+                        title={skill}
+                      >
+                        <span className={styles.cellSymbol}>{toSymbol(skill)}</span>
+                        <span className={styles.cellName}>{skill}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </motion.div>
-
       </div>
     </Page>
   )
 }
-

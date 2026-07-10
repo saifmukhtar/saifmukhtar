@@ -1,31 +1,64 @@
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft } from 'lucide-react'
-import Page from '../components/Page'
+import { Link } from 'react-router-dom'
 import styles from './NotFound.module.css'
 
+const glitchLines = [
+  "FATAL EXCEPTION: NULL POINTER DEREFERENCE.",
+  "TRACE ABORTED. NODE DISCONNECTED FROM CLUSTER.",
+  "REALITY MATRIX UNSPOOLING...",
+  "ERROR 404: The construct you seek has collapsed."
+]
+
 export default function NotFound() {
+  const [text, setText] = useState('')
+  const [lineIndex, setLineIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
+  const [showAction, setShowAction] = useState(false)
+  
+  useEffect(() => {
+    if (lineIndex >= glitchLines.length) {
+      setTimeout(() => setShowAction(true), 800)
+      return
+    }
+
+    const currentLine = glitchLines[lineIndex]
+    
+    if (charIndex < currentLine.length) {
+      const timeout = setTimeout(() => {
+        setText(prev => prev + currentLine[charIndex])
+        setCharIndex(c => c + 1)
+      }, Math.random() * 40 + 20) // Random terminal typing speed
+      return () => clearTimeout(timeout)
+    } else {
+      const timeout = setTimeout(() => {
+        setText(prev => prev + '\n')
+        setLineIndex(l => l + 1)
+        setCharIndex(0)
+      }, 300)
+      return () => clearTimeout(timeout)
+    }
+  }, [lineIndex, charIndex])
+
   return (
-    <Page>
-      <div className={styles.container}>
-        <motion.div 
-          className={styles.content}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className={styles.errorCode}>404</h1>
-          <h2 className={styles.title}>Topology Disconnected</h2>
-          <p className={styles.description}>
-            The node you are looking for does not exist in the current causal graph. 
-            It may have been moved, deleted, or never existed.
-          </p>
-          <Link to="/" className="btn btn-primary">
-            <ArrowLeft size={16} />
-            Return to Root
-          </Link>
-        </motion.div>
-      </div>
-    </Page>
+    <div className={styles.terminalContainer}>
+       <div className={styles.glitchOverlay} />
+       <div className={styles.terminal}>
+         <pre className={styles.typewriter}>
+            {text}
+            <span className={styles.cursor}>_</span>
+         </pre>
+         {showAction && (
+           <motion.div 
+             initial={{ opacity: 0 }} 
+             animate={{ opacity: 1 }} 
+             className={styles.actions}
+           >
+             <p className={styles.rebootText}>&gt; SYSTEM HALTED. REBOOT RECOMMENDED.</p>
+             <Link to="/" className={styles.rebootBtn}>[ INITIATE REBOOT ]</Link>
+           </motion.div>
+         )}
+       </div>
+    </div>
   )
 }

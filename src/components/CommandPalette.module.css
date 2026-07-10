@@ -1,0 +1,111 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  background: rgba(248, 247, 242, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg), var(--shadow-offset-hover);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-base);
+}
+
+.prompt {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  margin-right: var(--sp-3);
+  font-weight: 700;
+  font-size: var(--text-lg);
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  color: var(--ink);
+  caret-color: var(--amber);
+}
+
+.input::placeholder {
+  color: var(--ink-faint);
+}
+
+.list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: var(--sp-2);
+}
+
+.item {
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-1);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--ink-secondary);
+  transition: all var(--dur-fast) var(--ease-smooth);
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.selected {
+  background: var(--ink);
+  color: var(--bg-base);
+}
+
+.empty {
+  padding: var(--sp-6);
+  text-align: center;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--bg-base);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+}
+
+kbd {
+  font-family: var(--font-mono);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 0px 4px;
+  border-radius: 3px;
+  margin: 0 2px;
+  color: var(--ink-muted);
+}

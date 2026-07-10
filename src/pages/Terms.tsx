@@ -11,21 +11,21 @@ export default function Terms() {
         <section className={styles.section}>
           <h2>1. Acceptance of Terms</h2>
           <p>
-            By accessing and using saifmukhtar.dev, you accept and agree to be bound by the terms and provision of this agreement.
+            By accessing and using this template, you accept these placeholder terms.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>2. Intellectual Property</h2>
           <p>
-            All original content on this website, including essays, research summaries, and design elements, are the property of Saif Mukhtar unless otherwise noted. Open-source code repositories linked from this site are governed by their respective licenses (typically MIT or AGPL).
+            All original content in this template is provided as placeholder material.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>3. Disclaimer</h2>
           <p>
-            The information and research presented on this site are for educational and informational purposes. While every effort is made to ensure accuracy in physics and software engineering writings, the author assumes no responsibility for errors or omissions.
+            This template is provided as-is for demonstration purposes only.
           </p>
         </section>
       </div>

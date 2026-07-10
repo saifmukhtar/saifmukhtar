@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import CommandPalette from './components/CommandPalette'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Research from './pages/Research'
+import KineticVision from './pages/research/KineticVision.mdx'
 import Skills from './pages/Skills'
 import Publications from './pages/Publications'
 import Experiments from './pages/Experiments'
@@ -36,6 +38,7 @@ function AnimatedRoutes() {
         <Route path="/about"       element={<About />} />
         <Route path="/projects"    element={<Projects />} />
         <Route path="/research"    element={<Research />} />
+        <Route path="/research/kinetic-vision" element={<KineticVision />} />
         <Route path="/skills"      element={<Skills />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/experiments" element={<Experiments />} />
@@ -54,10 +57,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <CommandPalette />
       <NavBar />
       <AnimatedRoutes />
       <Footer />
     </BrowserRouter>
   )
 }
-

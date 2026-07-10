@@ -1,5 +1,5 @@
 {
-  "name": "saifmukhtar",
+  "name": "template-portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,21 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saifmukhtar/saifmukhtar.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saifmukhtar/saifmukhtar/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/saifmukhtar/saifmukhtar#readme",
+  "homepage": "",
   "dependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "@mdx-js/rollup": "^3.1.1",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.17.0"
+    "react-router-dom": "^7.17.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.16",

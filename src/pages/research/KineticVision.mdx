@@ -1,0 +1,37 @@
+import MdxLayout from '../../components/MdxLayout'
+
+export const meta = {
+  title: 'The Kinetic Protocol: Vision Overview',
+  type: 'Vision Paper',
+  date: 'January 2026',
+  abstract: 'Introduces the overarching vision of the Kinetic Protocol — a decentralized, identity-centric service discovery network that resolves the namespace trilemma by substituting monetary fees with cryptographic time and non-parallelizable computation.'
+}
+
+export default function KineticVision({ children }) {
+  return <MdxLayout meta={meta}>{children}</MdxLayout>
+}
+
+## 1. Introduction
+
+The **Kinetic Protocol** proposes a fundamental shift in how we handle decentralized namespaces. 
+Instead of relying on fiat-pegged blockchain auctions to distribute domains, Kinetic uses *Proof of Patience*—a non-parallelizable cryptographic challenge known as a Verifiable Delay Function (VDF).
+
+If you want to register one domain, it is computationally trivial for an average machine to wait for the VDF to resolve. However, if a malicious actor attempts a Sybil attack by registering millions of domains, they will run out of computational time, as VDFs cannot be sped up by adding more cores.
+
+## 2. The Namespace Trilemma
+
+Traditionally, Zooko's Triangle dictates that a naming system cannot simultaneously be:
+- Human-meaningful
+- Secure
+- Decentralized
+
+We solve this mathematically.
+
+$$
+T_{claim} = \mathcal{O}(D) + \text{VDF}(x, \Delta t)
+$$
+
+Where $D$ is the dictionary difficulty and $\Delta t$ is the dynamic time parameter anchored to the latest beacon state.
+
+### Conclusion
+By anchoring identities in *time* rather than *capital*, Kinetic ensures that the internet remains equally accessible to anyone with a standard CPU.

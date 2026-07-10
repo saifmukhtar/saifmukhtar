@@ -26,32 +26,32 @@ const XIcon = () => (
 const socials = [
   {
     icon: <GithubIcon size={16} />,
-    label: '@saifmukhtar',
-    href: 'https://github.com/saifmukhtar',
+    label: '@template',
+    href: 'https://example.com',
     title: 'GitHub',
   },
   {
     icon: <MastodonIcon />,
-    label: '@saifmukhtar',
-    href: 'https://mastodon.social/@saifmukhtar',
-    title: 'Mastodon',
+    label: '@template',
+    href: 'https://example.com',
+    title: 'Profile',
   },
   {
     icon: <InstagramIcon />,
-    label: '@saifmukhtar',
-    href: 'https://instagram.com/saifmukhtar',
+    label: '@template',
+    href: 'https://example.com',
     title: 'Instagram',
   },
   {
     icon: <XIcon />,
-    label: '@saifmukhtar_',
-    href: 'https://x.com/saifmukhtar_',
+    label: '@template',
+    href: 'https://example.com',
     title: 'X',
   },
   {
     icon: <Mail size={16} />,
     label: 'Email',
-    href: 'mailto:saifmukhtar@saifmukhtar.dev',
+    href: 'mailto:hello@example.com',
     title: 'Email',
   },
   {
@@ -60,10 +60,9 @@ const socials = [
     href: '#',
     onClick: (e: React.MouseEvent) => {
       e.preventDefault()
-      const parts = ['https://wa.me/', '917', '644', '922', '091']
-      window.open(parts.join(''), '_blank', 'noopener,noreferrer')
+      window.open('https://example.com', '_blank', 'noopener,noreferrer')
     },
-    title: 'WhatsApp',
+    title: 'Chat',
   },
 ]
 
