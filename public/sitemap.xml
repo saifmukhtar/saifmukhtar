@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://saifmukhtar.github.io/</loc>
+    <loc>https://saifmukhtar.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/about</loc>
+    <loc>https://saifmukhtar.dev/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/projects</loc>
+    <loc>https://saifmukhtar.dev/projects</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/research</loc>
+    <loc>https://saifmukhtar.dev/research</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/research/kinetic-vision</loc>
+    <loc>https://saifmukhtar.dev/research/kinetic-vision</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/publications</loc>
+    <loc>https://saifmukhtar.dev/publications</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/skills</loc>
+    <loc>https://saifmukhtar.dev/skills</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/experiments</loc>
+    <loc>https://saifmukhtar.dev/experiments</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/contact</loc>
+    <loc>https://saifmukhtar.dev/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://saifmukhtar.github.io/links</loc>
+    <loc>https://saifmukhtar.dev/links</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
