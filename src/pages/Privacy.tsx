@@ -11,28 +11,28 @@ export default function Privacy() {
         <section className={styles.section}>
           <h2>1. Data Sovereignty & Philosophy</h2>
           <p>
-            This template keeps privacy copy intentionally generic.
+            I build software that doesn't spy on you. This website follows that exact same philosophy. Your data is your own, and I have absolutely no interest in collecting it.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>2. No Tracking or Cookies</h2>
           <p>
-            This template does not include tracking scripts or analytics by default.
+            This website does not use cookies, Google Analytics, tracking pixels, or any other form of user surveillance. Your visit here is completely private.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>3. Information Collection</h2>
           <p>
-            Standard hosting logs may still exist depending on where the site is deployed.
+            If you contact me via email or any encrypted messaging protocol (like Enclave or Signal), I will only use the information you provide to reply to you. I do not store, sell, or process personal data.
           </p>
         </section>
 
         <section className={styles.section}>
-          <h2>4. External Links</h2>
+          <h2>4. Open Source Transparency</h2>
           <p>
-            External links may lead to third-party websites with their own policies.
+            The entire source code of this website is publicly available on GitHub. You can verify exactly how it works and confirm the absence of any data collection mechanisms.
           </p>
         </section>
       </div>

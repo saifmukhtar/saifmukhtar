@@ -9,23 +9,23 @@ export default function Terms() {
         <p className={styles.lastUpdated}>Last Updated: June 2026</p>
 
         <section className={styles.section}>
-          <h2>1. Acceptance of Terms</h2>
+          <h2>1. Open Source Usage</h2>
           <p>
-            By accessing and using this template, you accept these placeholder terms.
+            Everything I build and host here is open source. You are completely free to read, use, fork, and study the code as permitted by the respective repository licenses (typically MIT or AGPL).
           </p>
         </section>
 
         <section className={styles.section}>
-          <h2>2. Intellectual Property</h2>
+          <h2>2. Cryptographic Research & Software</h2>
           <p>
-            All original content in this template is provided as placeholder material.
+            The software, protocols, and whitepapers provided on this site (such as Kinetic and Enclave) are experimental research projects. They are provided without warranty.
           </p>
         </section>
 
         <section className={styles.section}>
           <h2>3. Disclaimer</h2>
           <p>
-            This template is provided as-is for demonstration purposes only.
+            All information and software on this site is provided "as-is". I am not liable for any damages or issues that arise from using experimental cryptographic software or decentralized networks discussed here.
           </p>
         </section>
       </div>
