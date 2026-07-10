@@ -24,4 +24,4 @@ My core stack includes:
 
 Everything I build is open source. If you're working on something interesting involving applied cryptography, decentralized networks, or privacy-first software, feel free to reach out.
 
-[View my full portfolio & research notes](https://saifmukhtar.github.io)
+[View my full portfolio & research notes](https://saifmukhtar.dev)
